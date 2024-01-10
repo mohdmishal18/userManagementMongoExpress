@@ -1,0 +1,38 @@
+<%- include('../layouts/header.ejs') -%>
+<div class="container">
+    <div class="form-container" id="login-form">
+      <h1>Admin login</h1>
+
+      <% 
+        if(locals.messageadmin){
+          %>
+          <h4><%= messageadmin %></h4>
+          <%
+        }
+      %>
+
+      <% if(locals.log){
+          %>
+          <h4><%= logout %></h4>
+          <%
+        }
+      %>
+
+      <!-- <% if(locals.message){
+          %>
+          <h4><%= message %></h4>
+          <%
+        }
+      %> -->
+      
+      <form method="post" action="/admin/login">
+        <label for="email">Email or Username</label>
+        <input type="text" id="username" name="email" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+      </form>
+      <p>Are you an user ? , then <a href="/login">Login</a></p>
+    </div>
+</div>
+<%- include('../layouts/footer.ejs') -%>

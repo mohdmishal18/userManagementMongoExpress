@@ -1,0 +1,63 @@
+
+<%- include('../layouts/header.ejs') -%>
+<div class="container">
+    <div class="form-container" id="signup-form" >
+        <h1>Sign Up</h1>
+        <form action="" method="post" id="myForm" onsubmit="return validate()">
+        <label for="new-username">Username</label>
+        <input type="text" id="forname" name="name" required>
+        <% if (messages.userNameExist) { %>
+          <div style="color: red;">
+            <%= messages.userNameExist %>
+          </div>
+          <% } %>
+        <label for="new-email">Email</label>
+        <input type="email" id="new-email" name="email" required>
+        <% if (messages.exist) { %>
+          <div style="color: red;">
+            <%= messages.exist %>
+          </div>
+          <% } %>
+        <label for="new-number" >Mobile</label>
+        <input type="text" name="mobile" required>
+        <label for="new-password">Password</label>
+        <input type="password" id="new-password" name="password" required>
+        <button type="submit" value="signup" id="formSubmit">Sign Up</button>
+        </form>
+
+        
+        <p>Already have an account? <a href="/" id="login-link">Login</a></p>
+        <%
+
+            if(typeof message !== 'undefined'){
+                %>
+                <h4 style="color: white; background-color: rgb(45, 39, 39);"><%= message %></h4>
+                <%
+            }
+
+        %>
+    </div>
+</div>
+
+<script>
+
+function validate()
+{
+
+const name = document.getElementById("forname")
+  if(name.value.trim()==""){
+
+    alert("not entered username");
+
+    return false
+
+  }else{
+      
+    return true
+    
+  }
+}
+
+</script>
+
+<%- include('../layouts/footer.ejs') -%>
